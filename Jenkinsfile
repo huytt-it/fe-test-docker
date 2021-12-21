@@ -2,9 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Docker-build') {
+        stage('Build') {
             steps {
-                sh 'docker buid -t fe-test-docker .'
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
