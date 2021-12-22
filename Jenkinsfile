@@ -1,10 +1,13 @@
 pipeline {
-    agent any
+    agent { dockerfile {
+        filename 'fe-test-docker'
+        label 'my-defined-label'
+    } }
 
     stages {
-        stage('Build docker image') {
+        stage('Build docker') {
            steps {
-             sh 'docker build -t fe-test-docker -f Dockerfile .'
+             echo 'mvn clean install'
          }
         }
     }
