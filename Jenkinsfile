@@ -1,10 +1,10 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
 
     stages {
-        stage('Build dokcer') {
+        stage('Build docker image') {
            steps {
-             echo 'mvn clean install'
+             sh 'docker build -t fe-test-docker -f Dockerfile .'
          }
         }
     }
