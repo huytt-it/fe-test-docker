@@ -1,7 +1,6 @@
 pipeline {
     agent { dockerfile {
-        filename 'fe-test-docker'
-     } 
+        additionalBuildArgs  '--build-arg version=1.0.2'
     }
 
     stages {
