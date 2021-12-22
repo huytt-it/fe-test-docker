@@ -1,13 +1,10 @@
 pipeline {
-    agent { dockerfile {
-        additionalBuildArgs  'fe-test'
-    }
-    }
+    agent any
 
     stages {
         stage('Build docker') {
            steps {
-             echo 'mvn clean install'
+             sh 'docker build -t fe-test-docker .'
          }
         }
     }
