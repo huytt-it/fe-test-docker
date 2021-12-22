@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage('Build dokcer') {
-            echo 'OKE'
+           steps {
+             echo 'mvn clean install'
+         }
         }
     }
 }
