@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    environment {
+        DOCKERCREDENTIAL= credentials('dockerHubAdmin')
+    }
 
     stages {
-        stage('Build docker') {
+        stage('Login') {
            steps {
-             sh 'docker build -t fe-test-docker .'
+             sh 'echo $DOCKERCREDENTIAL | docker login -u $DOCKERCREDENTIAL --password-stdin'
          }
         }
     }
