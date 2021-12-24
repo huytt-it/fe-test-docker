@@ -22,11 +22,10 @@ pipeline {
              sh 'docker push huytt26/testjenkin:latest'
          }
         }
-
-        post {
+    }
+     post {
            always {
              sh 'docker logout'
          }
-        }
     }
 }
