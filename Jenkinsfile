@@ -1,13 +1,13 @@
 pipeline {
-    agent any
+    agent {label 'linux'}
     environment {
-        DOCKERCREDENTIAL= credentials('dockerHubAdmin')
+        DOCKERHUB_CREDENTIALS= credentials('myDockerHub')
     }
 
     stages {
         stage('Login') {
            steps {
-             sh 'echo $DOCKERCREDENTIAL | docker login -u $DOCKERCREDENTIAL --password-stdin'
+             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
          }
         }
     }
